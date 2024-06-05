@@ -34,7 +34,8 @@ def null_test(df_nn: pd.DataFrame,
 
 def null_test_my(all_gene_embedding_df: pd.DataFrame,
     embedding_dist_df: pd.DataFrame, 
-            pval=0.05,faked_pairs=200):
+    LR_df:pd.DataFrame, 
+    pval=0.05,faked_pairs=200):
     '''nonparametric left tail test to have enriched pairs'''
     if ('dist' ) not in embedding_dist_df.columns:
         raise IndexError('require resulted dataframe with column \'dist\' ')
@@ -48,6 +49,7 @@ def null_test_my(all_gene_embedding_df: pd.DataFrame,
             dist=dist_test.loc[index,"dist"]
             ligand_embedding=all_gene_embedding_df.loc[ligand].tolist()
             filtered_df = all_gene_embedding_df[all_gene_embedding_df.index != receptor]
+            filtered_df = filtered_df[(~filtered_df.index.isin(LR_df))]
             filtered_df = filtered_df.sample(n=faked_pairs, replace=False)
             pair=[]
             ligand_embedding=np.array(ligand_embedding,dtype=float).reshape(1,-1)
@@ -92,6 +94,6 @@ if __name__ == "__main__":
             df.loc[gene_name1 + '_' + gene_name2]=[gene_name1,gene_name2,dist]
 
     
-    df_enriched=null_test_my(all_embedding,df,pval=0.05,faked_pairs=200)
+    df_enriched=null_test_my(all_embedding,df,LR_df,pval=0.05,faked_pairs=200)
 
     df_enriched.to_csv(LR_result)
