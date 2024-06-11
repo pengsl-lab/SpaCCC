@@ -1,5 +1,9 @@
 # SpaCCC: Large language model-based cell-cell communication inference for spatially resolved transcriptomic data
+
 ===========================================================================
+Authors: 
+Boya Ji, Liwen Xu and Shaoliang Peng are with College of Computer Science and Electronic Engineering, Hunan University, Changsha 410082, China. Email: (byj; xuliwen; slpeng)@hnu.edu.cn.
+Debin Qiao is with School of Computer and Artificial Intelligence, National Supercomputing Center in Zhengzhou, Zhengzhou University, Zhengzhou 450001, China.  Email: dbqiao@gs.zzu.edu.cn.
 
 [![license](https://img.shields.io/badge/scGPT-black)](https://github.com/bowang-lab/scGPT)
 [![license](https://img.shields.io/badge/LIANA+-pink)](https://github.com/saezlab/liana-py)
