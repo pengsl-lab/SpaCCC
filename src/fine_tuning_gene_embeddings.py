@@ -506,7 +506,7 @@ if __name__ == "__main__":
         adata.obs["celltype"] = adata.obs["cell_type"].astype("category")
         adata.obs['batch'] = 0
     
-        # 我们的数据已经设置了gene名称作为index
+        
         # adata.var = adata.var.set_index("gene_symbols")
         data_is_raw = False
 
